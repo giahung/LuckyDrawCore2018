@@ -28,39 +28,57 @@ namespace LuckyDrawCore
 
         private void PrizePage_Loaded(object sender, RoutedEventArgs e)
         {
+            var window = Window.GetWindow(this);
+            window.KeyUp += Window_KeyUp;
+
             switch (DrawHelper.CurrentStage)
             {
                 case 9:
-                    PrizeImage.Source = new BitmapImage(new Uri("/Resource/8thPrize", UriKind.Relative));
+                    PrizeImage.Source = new BitmapImage(new Uri("/Resources/8thPrize.png", UriKind.Relative));
                     break;
                 case 8:
-                    PrizeImage.Source = new BitmapImage(new Uri("/Resource/7thPrize", UriKind.Relative));
+                    PrizeImage.Source = new BitmapImage(new Uri("/Resources/7thPrize.png", UriKind.Relative));
                     break;
                 case 7:
-                    PrizeImage.Source = new BitmapImage(new Uri("/Resource/6thPrize", UriKind.Relative));
+                    PrizeImage.Source = new BitmapImage(new Uri("/Resources/6thPrize.png", UriKind.Relative));
                     break;
                 case 6:
-                    PrizeImage.Source = new BitmapImage(new Uri("/Resource/5thPrize", UriKind.Relative));
+                    PrizeImage.Source = new BitmapImage(new Uri("/Resources/5thPrize.png", UriKind.Relative));
                     break;
                 case 5:
-                    PrizeImage.Source = new BitmapImage(new Uri("/Resource/4thPrize", UriKind.Relative));
+                    PrizeImage.Source = new BitmapImage(new Uri("/Resources/4thPrize.png", UriKind.Relative));
                     break;
                 case 4:
-                    PrizeImage.Source = new BitmapImage(new Uri("/Resource/3thPrize", UriKind.Relative));
+                    PrizeImage.Source = new BitmapImage(new Uri("/Resources/3rdPrize.png", UriKind.Relative));
                     break;
                 case 3:
-                    PrizeImage.Source = new BitmapImage(new Uri("/Resource/2thPrize", UriKind.Relative));
+                    PrizeImage.Source = new BitmapImage(new Uri("/Resources/2ngPrize.png", UriKind.Relative));
                     break;
                 case 2:
-                    PrizeImage.Source = new BitmapImage(new Uri("/Resource/1thPrize", UriKind.Relative));
+                    PrizeImage.Source = new BitmapImage(new Uri("/Resources/1stPrize.png", UriKind.Relative));
                     break;
                 case 1:
-                    //PrizeImage.Source = new BitmapImage(new Uri("/Resource/4thPrize", UriKind.Relative));
+                    window.KeyUp -= Window_KeyUp;
+                    //PrizeImage.Source = new BitmapImage(new Uri("/Resources/4thPrize.png", UriKind.Relative));
+                    NavigationService.Navigate(new Uri("ThankPage.xaml", UriKind.Relative));
+                    break;
+                default:
+                    window.KeyUp -= Window_KeyUp;
+                    break;
+            }
+        }
+
+        private void Window_KeyUp(object sender, KeyEventArgs e)
+        {
+            switch (e.Key)
+            {
+                case Key.F1:
+                    (sender as Window).KeyUp -= Window_KeyUp;
+                    NavigationService.Navigate(new Uri("DrawPage.xaml", UriKind.Relative));
                     break;
                 default:
                     break;
             }
-            
         }
     }
 }

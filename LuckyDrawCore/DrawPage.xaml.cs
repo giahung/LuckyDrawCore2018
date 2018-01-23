@@ -20,7 +20,8 @@ namespace LuckyDrawCore
     /// </summary>
     public partial class DrawPage : Page
     {
-        private bool firstTimePress = true; 
+        private bool firstTimePress = true;
+        private bool hasResult = false;
         public DrawPage()
         {
             InitializeComponent();
@@ -30,24 +31,51 @@ namespace LuckyDrawCore
         void DrawPage_Loaded(object sender, RoutedEventArgs e)
         {
             var window = Window.GetWindow(this);
-            window.KeyUp += window_KeyUp;
+            window.KeyUp += Window_KeyUp;
         }
 
-        private void window_KeyUp(object sender, KeyEventArgs e)
+        private void Window_KeyUp(object sender, KeyEventArgs e)
         {
             switch (e.Key)
             {
-                case Key.Space:
-                    if (firstTimePress)
+                case Key.Enter:
+                    if (!hasResult)
                     {
-                        Result.StartAnimation();
+                        if (firstTimePress)
+                        {
+                            Result.StartAnimation();
+                            btnStart.Source = new BitmapImage(new Uri("Resources/bgButtonStop.png", UriKind.Relative));
+                        }
+                        else
+                        {
+                            hasResult = true;
+                            Result.SetResult(DrawHelper.GetWinner());
+                            btnStart.Source = new BitmapImage(new Uri("Resources/bgButtonStart.png", UriKind.Relative));
+                        }
+                        firstTimePress = !firstTimePress;
                     }
-                    else
+                    break;
+                case Key.F2:
+                    if (firstTimePress && hasResult)
                     {
-                        Result.SetResult(DrawHelper.GetWinner());
+                        hasResult = false;
+                        Result.SetResult("000");
                     }
-                    firstTimePress = !firstTimePress;
-                    break;               
+                    break;
+                case Key.F1:
+                    if (firstTimePress && hasResult)
+                    {
+                        (sender as Window).KeyUp -= Window_KeyUp;
+                        if (--DrawHelper.CurrentStage == 10)
+                        {
+                            NavigationService.Navigate(new Uri("DrawPage16.xaml", UriKind.Relative));
+                        }
+                        else
+                        {
+                            NavigationService.Navigate(new Uri("PrizePage.xaml", UriKind.Relative));
+                        }
+                    }
+                    break;
                 default:
                     break;
             }

@@ -42,7 +42,7 @@
         <!--<control:ResultControl  Grid.Column="1"
                                 Grid.Row="1"
                                 x:Name="Result" />-->
-
+        <Image Grid.Column="2" Grid.Row="1" Source="Resources/bgButtonStart.png" x:Name="btnStart" Width="150" Height="150"></Image>
     </Grid>
 </Page>
 

@@ -43,7 +43,7 @@ namespace LuckyDrawCore
                 var rc = new ResultControl();
                 rc.SetValue(Grid.RowProperty, i / 4);
                 rc.SetValue(Grid.ColumnProperty, i % 4);
-                rc.SetValue(MarginProperty, new Thickness(15,10,15,10));
+                rc.SetValue(MarginProperty, new Thickness(15, 10, 15, 10));
                 Container.Children.Add(rc);
                 resultControls.Add(rc);
             }
@@ -51,7 +51,7 @@ namespace LuckyDrawCore
 
         private void Window_KeyUp(object sender, KeyEventArgs e)
         {
-             switch (e.Key)
+            switch (e.Key)
             {
                 case Key.Enter:
                     if (!hasResult)
@@ -62,6 +62,7 @@ namespace LuckyDrawCore
                             {
                                 item.StartAnimation();
                             }
+                            btnStart.Source = new BitmapImage(new Uri("Resources/bgButtonStop.png", UriKind.Relative));
                         }
                         else
                         {
@@ -70,23 +71,34 @@ namespace LuckyDrawCore
                                 item.SetResult(DrawHelper.GetWinner());
                             }
                             hasResult = true;
+                            btnStart.Source = new BitmapImage(new Uri("Resources/bgButtonStart.png", UriKind.Relative));
                         }
-                        firstTimePress = !firstTimePress; 
+                        firstTimePress = !firstTimePress;
                     }
                     break;
                 case Key.F2:
-                    (sender as Window).KeyUp -= Window_KeyUp;
-                    NavigationService.Navigate(new Uri("DrawPage.xaml", UriKind.Relative));
+                    if (firstTimePress && hasResult)
+                    {
+                        (sender as Window).KeyUp -= Window_KeyUp;
+                        NavigationService.Navigate(new Uri("DrawPage.xaml", UriKind.Relative));
+                    }
                     break;
                 case Key.F1:
-                    (sender as Window).KeyUp -= Window_KeyUp;
-                    if (--DrawHelper.CurrentStage == 10)
+                    if (firstTimePress && hasResult)
                     {
-                        NavigationService.Navigate(new Uri("DrawPage16.xaml", UriKind.Relative));
-                    }
-                    else
-                    {
-                        NavigationService.Navigate(new Uri("PrizePage.xaml", UriKind.Relative));
+                        if (--DrawHelper.CurrentStage == 10)
+                        {
+                            hasResult = false;
+                            foreach (var item in resultControls)
+                            {
+                                item.SetResult("000");
+                            }
+                        }
+                        else
+                        {
+                            (sender as Window).KeyUp -= Window_KeyUp;
+                            NavigationService.Navigate(new Uri("PrizePage.xaml", UriKind.Relative));
+                        }
                     }
                     break;
                 default:
