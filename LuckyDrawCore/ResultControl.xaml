@@ -1,0 +1,72 @@
+﻿<UserControl x:Class="LuckyDrawCore.ResultControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             d:DesignHeight="300"
+             d:DesignWidth="300">
+    <UserControl.Resources>
+        <Style TargetType="Border"
+               x:Key="NumberBorder">
+            <Setter Property="BorderThickness"
+                    Value="1" />
+            <Setter Property="BorderBrush"
+                    Value="#FFADADAD" />
+            <Setter Property="Background"
+                    Value="#FFD8D8D8" />
+            <Setter Property="Margin"
+                    Value="0" />
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="0.01*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="0.01*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Border Style="{StaticResource NumberBorder}">
+                <Border.Background>
+                    <ImageBrush ImageSource="Resources/bgNumberLeft.png"/>
+                </Border.Background>
+                <Viewbox>
+                    <TextBlock Name="firstNum"
+                               Margin="1,0"
+                               Text="0"
+                               Foreground="#FFEC2C23"
+                               FontFamily="Segoe UI" FontWeight="Bold"/>
+                </Viewbox>
+            </Border>
+            <Border Style="{StaticResource NumberBorder}"
+                    Grid.Column="2">
+                <Border.Background>
+                    <ImageBrush ImageSource="Resources/bgNumberCenter.png"/>
+                </Border.Background>
+                <Viewbox>
+                    <TextBlock x:Name="secondNum"
+                               Margin="1,0"
+                               FontFamily="Segoe UI"
+                               Foreground="#FFEC2C23"
+                               Text="0" FontWeight="Bold" />
+                </Viewbox>
+            </Border>
+            <Border Style="{StaticResource NumberBorder}"
+                    Grid.Column="4">
+                <Border.Background>
+                    <ImageBrush ImageSource="Resources/bgNumberRight.png"/>
+                </Border.Background>
+                <Viewbox>
+                    <TextBlock x:Name="thirdNum"
+                               Margin="1,0"
+                               FontFamily="Segoe UI"
+                               Foreground="#FFEC2C23"
+                               Text="0" FontWeight="Bold" />
+                </Viewbox>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>
