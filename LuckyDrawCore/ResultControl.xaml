@@ -37,7 +37,7 @@
                 </Border.Background>
                 <Viewbox>
                     <TextBlock Name="firstNum"
-                               Margin="1,0"
+                               Margin="0 -0.7 0 0.5"
                                Text="0"
                                Foreground="#FFEC2C23"
                                FontFamily="Segoe UI" FontWeight="Bold"/>
@@ -50,7 +50,7 @@
                 </Border.Background>
                 <Viewbox>
                     <TextBlock x:Name="secondNum"
-                               Margin="1,0"
+                               Margin="0 -0.7 0 0.5"
                                FontFamily="Segoe UI"
                                Foreground="#FFEC2C23"
                                Text="0" FontWeight="Bold" />
@@ -63,7 +63,7 @@
                 </Border.Background>
                 <Viewbox>
                     <TextBlock x:Name="thirdNum"
-                               Margin="1,0"
+                               Margin="0 -0.7 0 0.5"
                                FontFamily="Segoe UI"
                                Foreground="#FFEC2C23"
                                Text="0" FontWeight="Bold" />
