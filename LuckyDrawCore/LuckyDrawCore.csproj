@@ -137,9 +137,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\bgNumber.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\bg.png" />
   </ItemGroup>
   <ItemGroup>
@@ -156,8 +153,10 @@
     <Resource Include="Resources\bgNumberCenter.png" />
     <Resource Include="Resources\bgNumberLeft.png" />
     <Resource Include="Resources\bgNumberRight.png" />
-    <Resource Include="Resources\imgCongratulation.png" />
     <Resource Include="Resources\KV.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\congrats.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

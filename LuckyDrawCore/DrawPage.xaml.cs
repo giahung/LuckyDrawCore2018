@@ -30,6 +30,7 @@ namespace LuckyDrawCore
 
         void DrawPage_Loaded(object sender, RoutedEventArgs e)
         {
+            congrats.Visibility = Visibility.Hidden;
             var window = Window.GetWindow(this);
             window.KeyUp += Window_KeyUp;
         }
@@ -49,6 +50,10 @@ namespace LuckyDrawCore
                         else
                         {
                             hasResult = true;
+                            if (DrawHelper.CurrentStage <= 9)
+                            {
+                                congrats.Visibility = Visibility.Visible; 
+                            }
                             Result.SetResult(DrawHelper.GetWinner());
                             btnStart.Source = new BitmapImage(new Uri("Resources/bgButtonStart.png", UriKind.Relative));
                         }
@@ -59,6 +64,7 @@ namespace LuckyDrawCore
                     if (firstTimePress && hasResult)
                     {
                         hasResult = false;
+                        congrats.Visibility = Visibility.Hidden;
                         Result.SetResult("000");
                     }
                     break;

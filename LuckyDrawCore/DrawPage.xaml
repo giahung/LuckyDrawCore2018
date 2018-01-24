@@ -5,8 +5,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:control="clr-namespace:LuckyDrawCore"
       mc:Ignorable="d"
-      d:DesignHeight="768"
-      d:DesignWidth="1366"
+      d:DesignHeight="512"
+      d:DesignWidth="1024"
       Title="Result1Page">
 
     <Grid>
@@ -14,21 +14,23 @@
             <ImageBrush ImageSource="Resources/bg.png" />
         </Grid.Background>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="400*" />
+            <ColumnDefinition Width="200*" />
+            <ColumnDefinition Width="200*" />
             <ColumnDefinition Width="506*" />
             <ColumnDefinition Width="200*" />
             <ColumnDefinition Width="300*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="2*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
             <RowDefinition Height="*" />
             <RowDefinition Height="1.25*" />
         </Grid.RowDefinitions>
-
-        <control:ResultControl  Grid.Column="1"
-                                Grid.Row="1"
+        <Image Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Source="Resources/congrats.png" x:Name="congrats" Visibility="Hidden"></Image>
+        <control:ResultControl  Grid.Column="2"
+                                Grid.Row="2"
                                 x:Name="Result" />
-        <Image Grid.Column="2" Grid.Row="1" Source="Resources/bgButtonStart.png" x:Name="btnStart" Width="150" Height="150"></Image>
+        <Image Grid.Column="3" Grid.Row="2" Source="Resources/bgButtonStart.png" x:Name="btnStart" Width="75" Height="75"></Image>
 
     </Grid>
 </Page>

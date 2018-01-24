@@ -5,12 +5,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d"
              d:DesignHeight="300"
-             d:DesignWidth="300">
+             d:DesignWidth="600">
     <UserControl.Resources>
         <Style TargetType="Border"
                x:Key="NumberBorder">
             <Setter Property="BorderThickness"
-                    Value="1" />
+                    Value="0" />
             <Setter Property="BorderBrush"
                     Value="#FFADADAD" />
             <Setter Property="Background"

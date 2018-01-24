@@ -52,7 +52,7 @@ namespace LuckyDrawCore
                     PrizeImage.Source = new BitmapImage(new Uri("/Resources/3rdPrize.png", UriKind.Relative));
                     break;
                 case 3:
-                    PrizeImage.Source = new BitmapImage(new Uri("/Resources/2ngPrize.png", UriKind.Relative));
+                    PrizeImage.Source = new BitmapImage(new Uri("/Resources/2ndPrize.png", UriKind.Relative));
                     break;
                 case 2:
                     PrizeImage.Source = new BitmapImage(new Uri("/Resources/1stPrize.png", UriKind.Relative));
@@ -64,6 +64,7 @@ namespace LuckyDrawCore
                     break;
                 default:
                     window.KeyUp -= Window_KeyUp;
+                    NavigationService.Navigate(new Uri("ThankPage.xaml", UriKind.Relative));
                     break;
             }
         }

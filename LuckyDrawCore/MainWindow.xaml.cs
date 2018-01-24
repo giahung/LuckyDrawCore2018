@@ -34,21 +34,23 @@ namespace LuckyDrawCore
 
         private void SetMainGridSize()
         {
-            var h = MainGrid.ActualHeight;
-            var w = MainGrid.ActualWidth;
-            var r = h / w;
-            var n = 512 / 1024.0;
-            if (r >= n)
-            {
-                MainGrid.Width = w;
-                MainGrid.Height = w * n;
-            }
-            else
-            {
-                MainGrid.Height = h;
-                MainGrid.Width = h / n;
-            }
+            MainGrid.Width = 1024;
+            MainGrid.Height = 512;
+            //var h = MainGrid.ActualHeight;
+            //var w = MainGrid.ActualWidth;
+            //var r = h / w;
+            //var n = 512 / 1024.0;
+            //if (r >= n)
+            //{
+            //    MainGrid.Width = w;
+            //    MainGrid.Height = w * n;
+            //}
+            //else
+            //{
+            //    MainGrid.Height = h;
+            //    MainGrid.Width = h / n;
+            //}
         }
- 
+
     }
 }
