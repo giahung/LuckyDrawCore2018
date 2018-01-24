@@ -43,7 +43,9 @@ namespace LuckyDrawCore
                 var rc = new ResultControl();
                 rc.SetValue(Grid.RowProperty, i / 4);
                 rc.SetValue(Grid.ColumnProperty, i % 4);
-                rc.SetValue(MarginProperty, new Thickness(15, 10, 15, 10));
+                rc.SetValue(MarginProperty, new Thickness(15, 5, 15, 5));
+                rc.Width = 41*3;
+                rc.Height = 65;
                 Container.Children.Add(rc);
                 resultControls.Add(rc);
             }
