@@ -23,7 +23,7 @@ namespace LuckyDrawCore
 
         private static void LoadSource()
         {
-            for (int i = 1; i <= 999; i++)
+            for (int i = 11; i <= 750; i++)
             {
                 nums.Add(i.ToString("00#"));
             }
