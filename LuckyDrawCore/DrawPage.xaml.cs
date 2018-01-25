@@ -45,17 +45,18 @@ namespace LuckyDrawCore
                         if (firstTimePress)
                         {
                             Result.StartAnimation();
-                            btnStart.Source = new BitmapImage(new Uri("Resources/bgButtonStop.png", UriKind.Relative));
+                            //btnStart.Source = new BitmapImage(new Uri("Resources/bgButtonStop.png", UriKind.Relative));
+                            btnStart.Visibility = Visibility.Hidden;
                         }
                         else
                         {
                             hasResult = true;
                             if (DrawHelper.CurrentStage <= 9)
                             {
-                                congrats.Visibility = Visibility.Visible; 
+                                congrats.Visibility = Visibility.Visible;
                             }
                             Result.SetResult(DrawHelper.GetWinner());
-                            btnStart.Source = new BitmapImage(new Uri("Resources/bgButtonStart.png", UriKind.Relative));
+                            //btnStart.Source = new BitmapImage(new Uri("Resources/bgButtonStart.png", UriKind.Relative));
                         }
                         firstTimePress = !firstTimePress;
                     }
@@ -65,6 +66,7 @@ namespace LuckyDrawCore
                     {
                         hasResult = false;
                         congrats.Visibility = Visibility.Hidden;
+                        btnStart.Visibility = Visibility.Visible;
                         Result.SetResult("000");
                     }
                     break;

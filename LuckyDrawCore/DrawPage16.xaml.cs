@@ -44,7 +44,7 @@ namespace LuckyDrawCore
                 rc.SetValue(Grid.RowProperty, i / 4);
                 rc.SetValue(Grid.ColumnProperty, i % 4);
                 rc.SetValue(MarginProperty, new Thickness(15, 5, 15, 5));
-                rc.Width = 41*3;
+                rc.Width = 41 * 3;
                 rc.Height = 65;
                 Container.Children.Add(rc);
                 resultControls.Add(rc);
@@ -60,11 +60,12 @@ namespace LuckyDrawCore
                     {
                         if (firstTimePress)
                         {
+                            btnStart.Visibility = Visibility.Hidden;
                             foreach (var item in resultControls)
                             {
                                 item.StartAnimation();
                             }
-                            btnStart.Source = new BitmapImage(new Uri("Resources/bgButtonStop.png", UriKind.Relative));
+                            //btnStart.Source = new BitmapImage(new Uri("Resources/bgButtonStop.png", UriKind.Relative));
                         }
                         else
                         {
@@ -73,7 +74,7 @@ namespace LuckyDrawCore
                                 item.SetResult(DrawHelper.GetWinner());
                             }
                             hasResult = true;
-                            btnStart.Source = new BitmapImage(new Uri("Resources/bgButtonStart.png", UriKind.Relative));
+                            //btnStart.Source = new BitmapImage(new Uri("Resources/bgButtonStart.png", UriKind.Relative));
                         }
                         firstTimePress = !firstTimePress;
                     }
